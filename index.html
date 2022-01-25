@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>IP cam</title>
+    <script type="text/javascript" src="ip_cam_activex.js"></script>
+</head>
+<body>
+<center>
+    <br/>
+    <button id="BtnRunCam"     onclick="runViewCam();"                       > Запуск камеры </button>
+    <button id="BtnRecord"     onclick="ocx.ShowPlayBack();"                 > Запись        </button>
+    <button id="Btn9Cam"       onclick="ocx.ChangeShowWndNum(9,true,0,0);"   > 9 камер       </button>
+    <button id="BtnPlayAll"    onclick="ocx.PlayAll();"                      > Get all cam   </button>
+    <button id="BtnFullscreen" onclick="ocx.Fullscreen(true);"               > Fullscreen    </button>
+    <button id="BtnIpSetup"    onclick="ocx.ShowDeviceConfig();"             > Setup IpCam   </button>
+    <button id="BtnIpConfig"   onclick="ocx.ShowClientConfig();"             > Config IpCam  </button>
+    <button id="BtnLogout"     onclick="ocx.Logout();"                       > Logout        </button>
+    <div style="width: 60%; height: 80%">
+        <object id="ocx" type="application/nptest-plugin" height="100%" width="100%"></object>
+    </div>
+    <button id="dlbutton_1" onclick='window.open("NewActive.exe")'>Download NewActive.exe</button>
+    <button id="dlbutton_2" onclick='window.open("PlayerH.264.exe")'>Download PlayerH.264.exe</button>
+    <button id="dlbutton_3" onclick='window.open("FirefoxSetup41.0.exe")'>Download Firefox Setup 41.0.exe</button>
+    <br/>http://82.200.78.210:12006/<br/>
+</center>
+<script type="text/javascript">
+    var ipaddress = "82.200.78.210";// если камера установлена в локальной сети и страница запускается в ней
+	var hostport = 36006;// Порт IP камеры
+    var serverIP = "xmeye.net";// сервер произвадителя IP камеры, через него транслируется видеопоток
+    var serverPort = 8000;// порт сервера производителя
+	var username = ''; // Укажите имя пользователя !!!
+	var password = ''; // Укажите пароль пользователя !!!
+    try {
+        var comActiveX = new ActiveXObject("WEB.WebCtrl.1");
+    } catch (e) {
+        console.log('Ошибка инициализации ActiveXObject:', e);
+    }
+    var runViewCam = function(mac) {
+        ocx.SetSpecialParamEx2(2, "Russian", 0, 0);// выбор языка
+        var res = ocx.Login(ipaddress, hostport, username, password);
+        ocx.PlayAll();
+    }
+</script>
+</body>
+</html>
