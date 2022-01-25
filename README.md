@@ -8,7 +8,7 @@
 <img src="https://github.com/MyasnikovIA/IP_CAM_NETSurveillance/blob/main/img/ff.png?raw=true"/>
 
 
-Перед использованием необходимо прописать в коде имя пользователя и пароль.
+Перед использованием необходимо прописать в коде имя пользователя и пароль в index.html.
 <img src="https://github.com/MyasnikovIA/IP_CAM_NETSurveillance/blob/main/img/pass.png?raw=true"/>
 
 Результат:
